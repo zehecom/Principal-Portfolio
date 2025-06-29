@@ -1,17 +1,23 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Menu, X, Mail, Phone, Download, ChevronRight } from 'lucide-react'
-import { usePathname } from 'next/navigation';
+import { Menu, X, Mail, Phone, Download, ChevronRight, ChevronDown } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const pathname = usePathname();
+  const [isMoreOpen, setIsMoreOpen] = useState(false)
+  const pathname = usePathname()
 
   const menuItems = [
+    'HOME', 'ACADEMICS', 'RESEARCH', 'LEADERSHIP SKILLS', 'EXPERIENCES',
+    'ACHIEVEMENTS', 'AWARDS', 'ARTICLES', 'ACTIVITIES', 'CONSULTANCY',
+    'CV', 'APPRAISALS', 'FEEDBACK', 'GALLERY', 'CONTACT'
+  ]
+  const menuItems2 = [
     { name: 'HOME', path: '/' },
     { name: 'ACADEMICS', path: '/academic-qualification' },
-    { name: 'RESEARCH', path: '/#' },
+    { name: 'RESEARCH', path: '/research' },
     { name: 'LEADERSHIP SKILLS', path: '/#' },
     { name: 'EXPERIENCES', path: '/#' },
     { name: 'ACHIEVEMENTS', path: '/#' },
@@ -28,6 +34,14 @@ export default function Navbar() {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen)
+  }
+
+  const handleMoreHover = () => {
+    setIsMoreOpen(true)
+  }
+
+  const handleMoreLeave = () => {
+    setIsMoreOpen(false)
   }
 
   return (
@@ -70,18 +84,48 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <nav className='hidden lg:flex items-center space-x-1'>
-              {menuItems?.slice(0, 6)?.map((item, index) => (
+              {menuItems2.slice(0, 5).map((item, index) => (
                 <a
                   key={index}
-                  href={item?.path}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === item.path
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                  href={`${item.path}`}
+                  className={` px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === item.path
+                    ? 'text-blue-600 bg-blue-50'
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
                     }`}
                 >
                   {item.name}
                 </a>
               ))}
+
+              {/* More Dropdown */}
+              <div
+                className='relative'
+                onMouseEnter={handleMoreHover}
+                onMouseLeave={handleMoreLeave}
+              >
+                <button className='flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200'>
+                  <span>More</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMoreOpen ? 'rotate-180' : ''
+                    }`} />
+                </button>
+
+                {/* Dropdown Menu */}
+                <div className={`absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 transition-all duration-200 ${isMoreOpen ? 'opacity-100 visible transform translate-y-0' : 'opacity-0 invisible transform -translate-y-2'
+                  }`}>
+                  <div className='max-h-80 overflow-y-auto'>
+                    {menuItems2.slice(5).map((item, index) => (
+                      <a
+                        key={index}
+                        href={`${item.path}`}
+                        className='block px-4 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-150'
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
               <div className='flex items-center space-x-2 ml-4'>
                 <button className='px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2'>
                   <Download className='w-4 h-4' />
@@ -154,14 +198,14 @@ export default function Navbar() {
         </div>
 
         {/* Navigation Menu */}
-        <nav className='p-6 flex-1 overflow-y-auto'>
+        <nav className='p-6 flex-1 overflow-y-auto max-h-[calc(100vh-200px)]'>
           <div className='space-y-2'>
-            {menuItems.map((item, index) => (
+            {menuItems2.map((item, index) => (
               <a
                 key={index}
-                href={`#${item.path.replace('/', '')}`} // For anchor links (e.g., #academics)
+                href={`${item.path}`}
                 onClick={toggleSidebar}
-                className={`flex items-center justify-between p-3 rounded-lg transition-all duration-200 group ${item.name === 'HOME'
+                className={`flex items-center justify-between p-3 rounded-lg transition-all duration-200 group ${item === 'HOME'
                   ? 'text-blue-600 bg-blue-50 font-medium'
                   : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
                   }`}
