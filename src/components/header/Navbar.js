@@ -16,6 +16,7 @@ export default function Navbar() {
   ]
   const menuItems2 = [
     { name: 'HOME', path: '/' },
+    { name: 'ABOUT', path: '/about' },
     { name: 'ACADEMICS', path: '/academic-qualification' },
     { name: 'RESEARCH', path: '/research' },
     { name: 'LEADERSHIP SKILLS', path: '/#' },
