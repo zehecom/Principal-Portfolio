@@ -1,4 +1,4 @@
-import Patents from '@/components/Patents/Papents'
+import Patents from '@/components/Patents/Patents'
 
 export default function page() {
   return (

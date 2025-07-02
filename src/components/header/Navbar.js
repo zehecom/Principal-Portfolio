@@ -22,18 +22,15 @@ export default function Navbar() {
     { name: 'PATENTS', path: '/patents' },
     { name: 'CONFERENCE', path: '/conference-workshops' },
     { name: 'ADMINISTRATIVE ROLES', path: '/administrative-roles' },
-    { name: 'LEADERSHIP SKILLS', path: '/#' },
-    { name: 'EXPERIENCES', path: '/#' },
-    { name: 'ACHIEVEMENTS', path: '/#' },
-    { name: 'AWARDS', path: '/#' },
-    { name: 'ARTICLES', path: '/#' },
-    { name: 'ACTIVITIES', path: '/#' },
-    { name: 'CONSULTANCY', path: '/#' },
-    { name: 'CV', path: '/#' },
-    { name: 'APPRAISALS', path: '/#' },
-    { name: 'FEEDBACK', path: '/#' },
+    { name: 'PROJECT & GRANTS', path: '/projects' },
+    { name: 'AWARDS & ACHIEVEMENTS', path: '/awards' },
+    { name: 'TEACHING & SUPERVISION', path: '/teaching' },
+    { name: 'EDITORIAL & MEMBERSHIP', path: '/editorial' },
+    // { name: 'EXPERIENCES', path: '/#' },
+    // { name: 'ARTICLES', path: '/#' },
+    // { name: 'CONSULTANCY', path: '/#' },
     { name: 'GALLERY', path: '/#' },
-    { name: 'CONTACT', path: '/#' }
+    { name: 'CONTACT', path: '/contact' }
   ];
 
   const toggleSidebar = () => {
@@ -131,10 +128,12 @@ export default function Navbar() {
               </div>
 
               <div className='flex items-center space-x-2 ml-4'>
-                <button className='px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2'>
-                  <Download className='w-4 h-4' />
-                  <span>Download CV</span>
-                </button>
+                <a href='/documents/DR V JaiGanesh portfilio content pdf.pdf' download={true}>
+                  <button type='button' className='px-4 py-2 cursor-pointer bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2'>
+                    <Download className='w-4 h-4' />
+                    <span>Download CV</span>
+                  </button>
+                </a>
               </div>
             </nav>
 
