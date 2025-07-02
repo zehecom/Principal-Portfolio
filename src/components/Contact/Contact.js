@@ -1,4 +1,5 @@
 'use client'
+
 import { useState } from 'react';
 import Head from 'next/head';
 
@@ -68,8 +69,8 @@ export default function Contact() {
               Let's <span className="text-blue-600">Connect</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              I welcome opportunities for academic collaboration, research partnerships, 
-              speaking engagements, and meaningful professional discourse. 
+              I welcome opportunities for academic collaboration, research partnerships,
+              speaking engagements, and meaningful professional discourse.
               Let's explore how we can work together to advance knowledge and innovation.
             </p>
           </div>
@@ -81,7 +82,7 @@ export default function Contact() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">
                   Professional Information
                 </h2>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -143,7 +144,7 @@ export default function Contact() {
                     'Grant Partnerships',
                     'Doctoral Supervision'
                   ].map((interest, index) => (
-                    <span 
+                    <span
                       key={index}
                       className="bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200"
                     >
