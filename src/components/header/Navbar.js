@@ -123,7 +123,7 @@ export default function Navbar() {
                         {item.name}
                       </a>
                     ))}
-                  </div>
+                  </div> 
                 </div>
               </div>
 
