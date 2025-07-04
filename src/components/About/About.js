@@ -303,8 +303,8 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto text-center">
             <div className="relative">
-              <div className="absolute top-0 left-0 text-8xl text-blue-200 font-serif leading-none">"</div>
-              <div className="absolute bottom-0 right-0 text-8xl text-purple-200 font-serif leading-none">"</div>
+              <div className="absolute top-0 left-0 text-8xl text-blue-200 font-serif leading-none">&ldquo;</div>
+              <div className="absolute bottom-0 right-0 text-8xl text-purple-200 font-serif leading-none">&ldquo;</div>
               <div className="relative z-10 py-16">
                 <h3 className="text-3xl font-bold text-slate-800 mb-8">Professional Philosophy</h3>
                 <p className="text-2xl text-slate-700 leading-relaxed font-light italic max-w-4xl mx-auto">
